@@ -5,11 +5,12 @@ const cors=require('cors');
 require ('dotenv').config();
 
 const app=express();
-const port=3000;
+const port=5000;
 
 connectDB();
+app.use(express.json());
 app.use(cors());
-app.use('api',router); 
+app.use('/products',router); 
 
 app.listen(port,()=>{
     console.log(`Server running on port ${port}`);
