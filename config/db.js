@@ -28,7 +28,7 @@ const connectDB = async () => {
       throw new Error("❌ MongoDB URI is missing. Check your .env file.");
     }
 
-    await mongoose.connect(mongoURI, {
+    await mongoose.connect(mongoURI, { 
       dbName: "pixoProduct", 
     });
 
