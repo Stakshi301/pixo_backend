@@ -11,7 +11,12 @@ const port=5000;
  
 connectDB();
 app.use(express.json()); 
-app.use(cors());
+app.use(cors({
+          origin: "http://localhost:5174", // Your frontend URL
+          credentials: true, // Allow cookies and authorization headers
+        })
+      ); 
+
 app.use('/products',ProductRoute);   
 app.use('/login-signin',userRoute);
 app.use('/post',postRoute);

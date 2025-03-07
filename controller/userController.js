@@ -19,7 +19,7 @@ const signIn = async (req, res) => {
   } catch (err) {
     res.status(500).json(err.message);
   }
-};
+}; 
 
 //login exixting user
 // const logIn = async (req, res) => {
