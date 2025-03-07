@@ -17,4 +17,4 @@ app.use('/login-signin',userRoute);
 app.use('/post',postRoute);
 app.listen(port,()=>{ 
     console.log(`Server running on port ${port}`);
-}) 
+})  

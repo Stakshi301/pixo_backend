@@ -5,8 +5,8 @@ const userModel = require('../model/userSchema');
 //create post
 const createPost=async(req,res)=>{
     try{
-        const {title,description,image}=req.body;
-        const newPost=new postModel({userId:req.user.userId,title,description,image});
+        const {name,description,image}=req.body;
+        const newPost=new postModel({userId:req.user.userId,name,description,image});
         await newPost.save();
         res.status(201).json({ message: "Post created successfully!", post: newPost });
     }catch(err){
@@ -49,10 +49,10 @@ const updatePost=async(req,res)=>{
     }catch (error) {
     res.status(500).json({ message: "Server Error!" });
   }
-}
+} 
 
 
-//delete post
+//delete post 
 const deletePost=async(req,res)=>{
     try{
         const deletepost=await postModel.findById(req.params.id);
@@ -69,11 +69,11 @@ const deletePost=async(req,res)=>{
 }
 
 
-//search image by title
+//search image by name
 const searchPost=async(req,res)=>{
     try{
         const {query}=req.query;
-        const post=await postModel.find({ title: { $regex: query, $options: "i" }});
+        const post=await postModel.find({ name: { $regex: query, $options: "i" }});
         res.json(post);
     } catch (error) {
     res.status(500).json({ message: "Server Error!" });
